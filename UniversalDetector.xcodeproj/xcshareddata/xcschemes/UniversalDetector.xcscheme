@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1230"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "exec &gt; ${PROJECT_DIR}/postbuild.log 2&gt;&amp;1&#10;&#10;SRC=${TARGET_BUILD_DIR}&#10;DST=${PROJECT_DIR}/build/ArchiveIntermediates/${PROJECT_NAME}/BuildProductsPath/${CONFIGURATION}&#10;&#10;echo &quot;Project Name: ${PROJECT_NAME}&quot;&#10;echo &quot;Source Directory: ${SRC}&quot;&#10;echo &quot;Destination Directory: ${DST}&quot;&#10;&#10;mkdir -p ${SRC} ${DST}&#10;&#10;( cd ${SRC} &amp;&amp; tar cf - ${PROJECT_NAME}.framework ) | ( cd ${DST} &amp;&amp; tar xf - )&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "8DC2EF4F0486A6940098B216"
+                     BuildableName = "UniversalDetector.framework"
+                     BlueprintName = "UniversalDetector"
+                     ReferencedContainer = "container:UniversalDetector.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
